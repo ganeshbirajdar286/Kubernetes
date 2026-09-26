@@ -13,6 +13,14 @@ spec:
   minReplicas: 1
   maxReplicas: 5
 
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 0
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: 15
+
   metrics:
     - type: Resource
       resource:
